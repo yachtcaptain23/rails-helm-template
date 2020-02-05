@@ -30,6 +30,9 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          env:
+            - name: DATABASE_URL
+              value: "postgres://postgres:abcd1234@172.17.0.4/playground_dev"
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
